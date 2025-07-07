@@ -77,7 +77,7 @@ resource "null_resource" "webapp" {
     content = templatefile("./templates/application.config.tpl", {
       hosts     = aws_instance.main.*.private_dns
       site_name = "${local.name_prefix}-taco-wagon"
-      api_key   = var.api_key 
+      api_key   = var.api_key
     })
     destination = "/home/ec2-user/application.config"
   }
